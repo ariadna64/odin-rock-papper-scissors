@@ -1,32 +1,47 @@
-
-
+let playerScore = 0
+let computerScore = 0
 
 function getComputerChoice() {
-    let num = Math.floor(Math.random() * 3)
+    const element = ["Rock", "Paper", "Scissors"];
+
+    const random = Math.floor(Math.random() * element.length);
     
-    if (num === 0) {
-        return "Rock"
-    } else if (num === 1)
-        return "Papper"
-    else {
-        return "Scissors"
-    }
+    return element[random]
+    
 }
 
 console.log(getComputerChoice())
 
+function playRound(playerSelection, computerSelection) {
+    let result = ""
+    let round_lost = "Oh no! You chose "+playerSelection+" and the computer chose "+computerSelection+". You lost the round! "
+    let round_won = "Yes! You chose "+playerSelection+" and the computer chose "+computerSelection+". You won the round! "
 
-function playRound(playerSelection,computerSelection) {
-    if (computerSelection === "Rock" && playerSelection === "Scissors" || computerSelection === "Papper" && playerSelection === "Rock" ||
-    computerSelection === "Scissors" && playerSelection === "Papper") {
-        return "You lost the round!"
-    } else if (computerSelection === "Scissors" && playerSelection === "Rock" || computerSelection === "Rock" && playerSelection === "Papper" ||
-    computerSelection === "Papper" && playerSelection === "Scissors") {
-        return "You won the round!"
-    } else if (computerSelection === playerSelection) {
-        return "The round is a Tie!"}
+
+    if ((playerSelection === "Rock" &&  computerSelection === "Scissors") ||
+    (playerSelection === "Paper" && computerSelection === "Rock") ||
+    (playerSelection === "Scissors" && computerSelection === "Paper")) {
+        playerScore =+ 1
+        console.log(result = (round_won + "You\'r score is " + playerScore+". And the computer score is "+computerScore))
+        
+        if (playerScore === 5) {
+            return "You won the match!"
+        }
+    
+    else if (playerSelection === computerSelection) {
+        console.log(result = "TIE! Try again!")
+    
     }
 
+    else {
+        computerScore =+ 1
+        console.log(result = (round_lost + "You\'r score is " + playerScore+". And the computer score is "+computerScore))
+    }
+
+    }
+}
+
+
 const playerSelection = "Rock"
-const computerSelection = getComputerChoice().toLowerCase;
+const computerSelection = getComputerChoice()
 console.log(playRound(playerSelection, computerSelection));
