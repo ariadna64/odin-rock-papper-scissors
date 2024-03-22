@@ -33,7 +33,9 @@ function playRound(playerSelection, computerSelection) {
     
     }
 
-    else {
+    else ((playerSelection === "Scissors" &&  computerSelection === "Rock") ||
+    (playerSelection === "Rock" && computerSelection === "Paper") ||
+    (playerSelection === "Paper" && computerSelection === "Scissors")); {
         computerScore =+ 1
         console.log(result = (round_lost + "You\'r score is " + playerScore+". And the computer score is "+computerScore))
     }
