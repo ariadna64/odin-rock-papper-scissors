@@ -37,7 +37,9 @@ function playRound(playerSelection, computerSelection) {
         computerScore =+ 1
         console.log(result = (round_lost + "You\'r score is " + playerScore+". And the computer score is "+computerScore))
     }
-
+        if (computerScore === 5) {
+            return "You lost the match!"
+        }
     }
 }
 
