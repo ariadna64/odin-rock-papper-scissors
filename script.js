@@ -2,50 +2,57 @@ let playerScore = 0
 let computerScore = 0
 
 function getComputerChoice() {
-    const element = ["Rock", "Paper", "Scissors"];
-
-    const random = Math.floor(Math.random() * element.length);
+    const elements = ["rock", "paper", "scissors"];
+    const random = Math.floor(Math.random() * elements.length);
     
-    return element[random]
+    return elements[random];
     
 }
 
-console.log(getComputerChoice())
 
-function playRound(playerSelection, computerSelection) {
-    let result = ""
-    let round_lost = "Oh no! You chose "+playerSelection+" and the computer chose "+computerSelection+". You lost the round! "
-    let round_won = "Yes! You chose "+playerSelection+" and the computer chose "+computerSelection+". You won the round! "
+function playRound(player, computer) {
 
+    let result = "";
+    let round_lost = "Oh no! You chose "+player+" and the computer chose "+computer+". You lost the round! ";
+    let round_won = "Yes! You chose "+player+" and the computer chose "+computer+". You won the round! ";
 
-    if ((playerSelection === "Rock" &&  computerSelection === "Scissors") ||
-    (playerSelection === "Paper" && computerSelection === "Rock") ||
-    (playerSelection === "Scissors" && computerSelection === "Paper")) {
-        playerScore =+ 1
-        console.log(result = (round_won + "You\'r score is " + playerScore+". And the computer score is "+computerScore))
+    console.log(computer)
+
+    
+    // IF PLAYER WINS
+    if ((player === "rock" &&  computer === "scissors") ||
+    (player === "paper" && computer === "rock") ||
+    (player === "scissors" && computer === "paper")) {
+        playerScore += 1;
+        result = round_won + "You\'r score is " + playerScore+". And the computer score is "+computerScore;
+        console.log(result);
         
         if (playerScore === 5) {
             return "You won the match!"
         }
     
-    else if (playerSelection === computerSelection) {
-        console.log(result = "TIE! Try again!")
-    
-    }
-
-    else ((playerSelection === "Scissors" &&  computerSelection === "Rock") ||
-    (playerSelection === "Rock" && computerSelection === "Paper") ||
-    (playerSelection === "Paper" && computerSelection === "Scissors")); {
-        computerScore =+ 1
-        console.log(result = (round_lost + "You\'r score is " + playerScore+". And the computer score is "+computerScore))
+    }  // IF COMPUTER WINS
+    else if ((player === "scissors" &&  computer === "rock") ||
+    (player === "rock" && computer === "paper") ||
+    (player === "paper" && computer === "scissors")){
+        computerScore += 1
+        result = round_lost + "You\'r score is " + playerScore+". And the computer score is "+computerScore;
+        console.log(result);
     }
         if (computerScore === 5) {
             return "You lost the match!"
         }
+        // IF TIE
+    else if (player === computer) {
+            result = "TIE! Try again!";
+            console.log(result);
+        
+        }
+    
     }
-}
 
 
-const playerSelection = "Rock"
-const computerSelection = getComputerChoice()
+const playerSelection = prompt("Rock, Paper or Scissors? ").toLowerCase();
+const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
+
