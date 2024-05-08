@@ -1,7 +1,7 @@
 let playerScore = 0;
 let computerScore = 0; // SCORES DEFINIDOS EN 0 PARA TOMARLOS LUEGO EN LA FUNCION
 
-const goalScore = 5;
+const goalScore = 2;
 
 function getComputerChoice() { // FUNCION QUE DEVUELVE PIEDRA, PAPEL O TIJERA RANDOM
     const elements = ["rock", "paper", "scissors"];
@@ -10,6 +10,30 @@ function getComputerChoice() { // FUNCION QUE DEVUELVE PIEDRA, PAPEL O TIJERA RA
     return elements[random];
     
 }
+
+//BOTONES
+
+let rock = document.createElement("button");
+rock.textContent = "ROCK";
+document.body.appendChild(rock);
+
+rock.addEventListener("click",() => {
+    playRound("Rock", computerSelection);
+   
+    
+})
+
+
+
+let paper = document.createElement("button");
+paper.textContent = "PAPER";
+document.body.appendChild(paper);
+
+
+let scissors = document.createElement("button");
+scissors.textContent = "SCISSORS";
+document.body.appendChild(scissors);
+
 
 
 function playRound(player, computer) {
@@ -53,10 +77,15 @@ function playRound(player, computer) {
     return result
     }
 
+co
+
+
 // WHILE LOOP QUE SE EJECUTA MIENTRAS LOS SCORES SEAN MENORES A 5. TIENE EL PROMPT Y EL ELEMENTO RANDOM DE LA PRIMERA FUNCION.
 
 while (playerScore < goalScore && computerScore < goalScore) { 
-    const playerSelection = prompt("Rock, Paper or Scissors? ").toLowerCase();
+   const playerSelection = prompt("Rock, Paper or Scissors? ").toLowerCase();
     const computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
 }
+
+
