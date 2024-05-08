@@ -17,23 +17,27 @@ let rock = document.createElement("button");
 rock.textContent = "ROCK";
 document.body.appendChild(rock);
 
-rock.addEventListener("click",() => {
-    playRound("Rock", computerSelection);
-   
-    
+eventoRock = rock.addEventListener("click",() => {
+    console.log(playRound("rock", getComputerChoice()));
 })
-
 
 
 let paper = document.createElement("button");
 paper.textContent = "PAPER";
 document.body.appendChild(paper);
 
+eventoPaper = paper.addEventListener("click",() => {
+    console.log(playRound("paper", getComputerChoice()));
+})
+
 
 let scissors = document.createElement("button");
 scissors.textContent = "SCISSORS";
 document.body.appendChild(scissors);
 
+eventoScissors = scissors.addEventListener("click",() => {
+    console.log(playRound("scissors", getComputerChoice()));
+})
 
 
 function playRound(player, computer) {
@@ -77,15 +81,17 @@ function playRound(player, computer) {
     return result
     }
 
-co
+
 
 
 // WHILE LOOP QUE SE EJECUTA MIENTRAS LOS SCORES SEAN MENORES A 5. TIENE EL PROMPT Y EL ELEMENTO RANDOM DE LA PRIMERA FUNCION.
 
-while (playerScore < goalScore && computerScore < goalScore) { 
-   const playerSelection = prompt("Rock, Paper or Scissors? ").toLowerCase();
-    const computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
+if (playerScore < goalScore && computerScore < goalScore) {
+    console.log("Continue playing...");
+} else if (playerScore === goalScore) {
+    console.log("You won the match!");
+} else {
+    console.log("You lost the match!");
 }
 
 
