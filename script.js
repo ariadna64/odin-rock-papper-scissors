@@ -1,7 +1,7 @@
 let playerScore = 0;
 let computerScore = 0; // SCORES DEFINIDOS EN 0 PARA TOMARLOS LUEGO EN LA FUNCION
 
-const goalScore = 2;
+const goalScore = 5;
 
 function getComputerChoice() { // FUNCION QUE DEVUELVE PIEDRA, PAPEL O TIJERA RANDOM
     const elements = ["rock", "paper", "scissors"];
@@ -86,12 +86,16 @@ function playRound(player, computer) {
 
 // WHILE LOOP QUE SE EJECUTA MIENTRAS LOS SCORES SEAN MENORES A 5. TIENE EL PROMPT Y EL ELEMENTO RANDOM DE LA PRIMERA FUNCION.
 
+let div = document.createElement("div");
+document.body.appendChild(div);
+
+
 if (playerScore < goalScore && computerScore < goalScore) {
-    console.log("Continue playing...");
+   console.log("Continue playing...")
 } else if (playerScore === goalScore) {
-    console.log("You won the match!");
+    window.alert("You won the match!");
 } else {
-    console.log("You lost the match!");
+   window.alert("You lost the match!");
 }
 
 
