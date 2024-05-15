@@ -56,9 +56,7 @@ document.body.appendChild(divPlayerScore);
 //BOTON PARA RECARGAR LA PAGINA
 
 let buttonStart = document.createElement("button");
-buttonStart.textContent = "START AGAIN"
-
-document.body.appendChild(buttonStart);
+buttonStart.textContent = "PLAY AGAIN"
     
 function reloadClick() {
     window.location.reload(); //FUNCION QUE RECARGA LA PAGINA
@@ -67,13 +65,13 @@ function reloadClick() {
 buttonStart.addEventListener("click", reloadClick);
 
 
-
-
 function playRound(player, computer) {
 
     let result = "";
     let round_lost = "Oh no! You chose "+player+" and the computer chose "+computer+". You lost the round! ";
     let round_won = "Yes! You chose "+player+" and the computer chose "+computer+". You won the round! ";
+
+    document.body.appendChild(buttonStart);
 
  while ((playerScore !== goalScore) && (computerScore !== goalScore)) {  
 
@@ -112,11 +110,9 @@ function playRound(player, computer) {
         }
    
     return div.textContent = result
-    
 
     }
 
-    
 
     }
 
