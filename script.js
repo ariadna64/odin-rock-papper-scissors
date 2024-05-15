@@ -47,7 +47,7 @@ function playRound(player, computer) {
     let round_won = "Yes! You chose "+player+" and the computer chose "+computer+". You won the round! ";
     
     if ((player !== "rock") || (player !== "paper") || (player !== "scissors")) {  // Si el input del player es distinto
-        result = "Invalid input. Try again";                                       // a rock, paper o scissors. 
+        result = div.textContent = "Invalid input. Try again.";                                       // a rock, paper o scissors. 
 
     } 
 
@@ -56,10 +56,10 @@ function playRound(player, computer) {
     (player === "paper" && computer === "rock") ||
     (player === "scissors" && computer === "paper")) {
         playerScore += 1; // Si ganas aumenta el score
-        result = round_won + "Your score is " + playerScore+". And the computer score is "+computerScore;
+        result = round_won + "Your score is " + playerScore+". And the computer score is "+computerScore+".";
         
         if (playerScore === goalScore) {
-            return "You won the match!"
+            return div.textContent = "You won the match!"
         }
     
     }  // IF COMPUTER WINS
@@ -67,10 +67,10 @@ function playRound(player, computer) {
     (player === "rock" && computer === "paper") ||
     (player === "paper" && computer === "scissors")){
         computerScore += 1 // Si perdes aumenta el score de la computadora
-        result = round_lost + "Your score is " + playerScore+". And the computer score is "+computerScore;
+        result = round_lost + "Your score is " + playerScore+". And the computer score is "+computerScore+".";
     }
         if (computerScore === goalScore) {
-            return "You lost the match!"
+            return div.textContent = "You lost the match!"
         }
         // IF TIE
     else if (player === computer) {
@@ -78,7 +78,7 @@ function playRound(player, computer) {
         
         }
    
-    return result
+    return div.textContent = result
     }
 
 
@@ -90,12 +90,12 @@ let div = document.createElement("div");
 document.body.appendChild(div);
 
 
-if (playerScore < goalScore && computerScore < goalScore) {
-   console.log("Continue playing...")
+if ((playerScore < goalScore) && (computerScore < goalScore)) {
+   div.textContent = play
 } else if (playerScore === goalScore) {
-    window.alert("You won the match!");
+    div.textContent = won;
 } else {
-   window.alert("You lost the match!");
+   div.textContent = lost;
 }
 
 
